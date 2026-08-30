@@ -1,3 +1,56 @@
-div {
-    background-color: red;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.player-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.player-inputs input {
+    padding: 8px;
+}
+
+#start-button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#status {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+
+    justify-content: center;
+}
+
+.cell {
+    font-size: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
