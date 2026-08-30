@@ -71,6 +71,17 @@ const gameController = (() => {
         gameBoard.resetBoard();
     };
 
+    const resetGame = () => {
+        gameBoard.resetBoard();
+
+        playerOne = undefined;
+        playerTwo = undefined;
+        activePlayer = undefined;
+
+        gameOver = true;
+        resultMessage = "";
+    };
+
 
     const switchPlayerTurn = () => {
 
@@ -184,6 +195,7 @@ const gameController = (() => {
 
     return {
         startGame,
+        resetGame,
         playRound,
         getActivePlayer,
         isGameOver,
@@ -278,6 +290,26 @@ const displayController = (() => {
 
 
     startButton.addEventListener("click", () => {
+
+        if (startButton.textContent === "Restart Game") {
+
+            gameController.resetGame();
+
+            playerOneInput.value = "";
+            playerTwoInput.value = "";
+
+            startButton.textContent = "Start Game";
+
+            status.textContent =
+                "Enter player names and start the game.";
+
+            result.textContent = "";
+
+            renderBoard();
+
+            return;
+        }
+
 
         const playerOneName =
             playerOneInput.value.trim();
